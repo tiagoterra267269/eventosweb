@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+      }
+      .login-container {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        text-align: center;
+      }
+      .login-container h1 {
+        margin-bottom: 20px;
+      }
+      .login-container input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      .login-container button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        background: #28a745;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .login-container button:hover {
+        background: #218838;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <h1>Controle de Acesso</h1>
+      <form id="loginForm">
+        <input type="text" id="login" placeholder="Usuário" required />
+        <input type="senha" id="senha" placeholder="Senha" required />
+        <button id="btnLogin" >Login</button>
+      </form>
+    </div>
+
+    <script>
+       
+       function buttonClicked() {
+          alert('Button clicked!');
+        }
+
+        // Função que adiciona o event listener ao botão
+        function initialize() {
+            // Obtém o botão pelo ID
+            const button = document.getElementById('btnLogin');
+            
+            // Adiciona o event listener para chamar a função buttonClicked ao clicar
+            button.addEventListener('click', login1);
+        }
+
+        // Adiciona o event listener para chamar a função initialize quando o DOM for carregado
+        document.addEventListener('DOMContentLoaded', initialize);
+    </script>
+  </body>
+  <script src="login.js"></script>
+</html>

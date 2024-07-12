@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Evento</title>
+  </head>
+
+  <body>
+    <input type="hidden" id="hidEvento" />
+    <!-- Cabeçalho de informações do sistema -->
+    <header>
+      <div>
+        <h2></h2>
+      </div>
+      <!-- Tab links -->
+      <div class="tab">
+        <button
+          id="btnEventos"
+          class="tablinks"
+          onclick="openTab(event, 'Eventos')"
+        >
+          Eventos
+        </button>
+        <button
+          id="btnManterEvento"
+          class="tablinks"
+          disabled="true"
+          onclick="openTab(event, 'ManterEvento')"
+        >
+          Manter Evento
+        </button>
+        <button
+          id="btnParticipantes"
+          class="tablinks"
+          disabled="true"
+          onclick="openTab(event, 'Participantes')"
+        >
+          Participantes
+        </button>
+      </div>
+
+      <!-- Tab content -->
+      <div id="Eventos" class="tabcontent">
+        <div>
+          <div class="form-group">
+            <input type="text" id="newNome" placeholder="Nome" />
+          </div>
+          <div class="form-group">
+            <input type="date" id="newInicio" placeholder="Data Início" />
+          </div>
+          <div class="form-group-button"></div>
+        </div>
+        <div style="text-align: center; margin: 1%">
+          <button
+            id="btnNovoEvento"
+            class="btnnovoevento"
+            onclick="novoEvento()"
+          >
+            Novo
+          </button>
+          <button class="salvar" onclick="salvarEvento()">Salvar</button>
+        </div>
+        <table id="grid" class="grid-container">
+          <thead>
+            <tr class="row">
+              <th>Evento</th>
+              <th>Data de Início</th>
+              <th>Excluir</th>
+              <th>Editar</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div id="ManterEvento" class="tabcontent">
+        <button class="accordion">Responsáveis</button>
+        <div class="panel">
+          <div>
+            <div class="form-group">
+              <input
+                type="text"
+                id="newResponsavel"
+                placeholder="Responsável"
+              />
+            </div>
+            <div class="form-group">
+              <input type="text" id="newMatricula" placeholder="Matrícula" />
+            </div>
+            <div class="form-group">
+              <input type="email" id="newEmail" placeholder="E-mail" />
+            </div>
+            <div style="text-align: center; margin: 1%">
+              <button class="salvar" onclick="salvarResponsavel()">
+                Salvar
+              </button>
+            </div>
+          </div>
+
+          <!-- Tabela com items existentes -->
+          <section class="items">
+            <table id="tableResponsavel">
+              <tr>
+                <th>Nome</th>
+                <th>Matricula</th>
+                <th>
+                  <th>Excluir</th>
+                </th>
+              </tr>
+            </table>
+          </section>
+          <br />
+        </div>
+
+        <button class="accordion">Centros de Interesse</button>
+        <div class="panel">
+          <div>
+            <div class="form-group">
+              <input type="text" id="newTema" placeholder="Tema" />
+            </div>
+            <div class="form-group">
+              <select id="comboResponsavel"></select>
+            </div>
+            <div class="form-group">
+              <select id="comboSala"></select>
+            </div>
+            <div style="text-align: center; margin: 1%">
+              <button class="salvar" onclick="salvarCentroDeInteresse()">
+                Salvar
+              </button>
+            </div>
+          </div>
+
+          <!-- Tabela com items existentes -->
+          <section class="items">
+            <table id="tableCentrosDeInteresse">
+              <tr>
+                <th>Tema</th>
+                <th>Sala</th>
+                <th>Responsavel</th>
+                <th>Excluir</th>
+              </tr>
+            </table>
+          </section>
+        </div>
+      </div>
+
+      <div id="Participantes" class="tabcontent">
+        <div>
+          <div>
+            <div class="form-group">
+              <input type="text" id="newNomeParticipante" placeholder="Nome" />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                id="newEmailParticipante"
+                placeholder="Email"
+              />
+            </div>
+            <div class="form-group">
+              <input type="text" id="newInscricao" placeholder="Incrição" />
+            </div>
+            <div class="form-group">
+              <input type="text" id="cep" placeholder="Digite o CEP">
+              <button onclick="buscarCEP()">Buscar</button>
+              <div id="resultado"></div>
+            </div>
+            <div class="form-group" >
+              <input type="text" id="logradouro" readonly="true"/>
+            </div>
+            <div class="form-group" >
+              <input type="text" id="numero"/>
+            </div>
+            <div class="form-group" >
+              <input type="text" id="complemento" />
+            </div>
+            <div class="form-group" >
+              <input type="text" id="bairro" readonly="true"/>
+            </div>
+            <div class="form-group" >
+              <input type="text" id="localidade" readonly="true"/>
+            </div>
+            <div class="form-group" >
+              <input type="text" id="uf" readonly="true"/>
+            </div>
+
+            <h4 style="margin-left: 2%">Centros de Interesse disponíveis:</h4>
+            <hr class="linhaSubtitulo" />
+            <br />
+            <div style="text-align: center">
+              <div class="gridCentrosDeParticipantes-container">
+                <div id="gridCentrosDeParticipantes"></div>
+              </div>
+            </div>
+            <div style="text-align: center; margin: 1%">
+              <button class="salvar" onclick="salvarParticipante()">
+                Salvar
+              </button>
+            </div>
+          </div>
+        </div>
+        <table id="tableParticipante">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Email</th>
+              <th>Inscrição</th>
+              <th>UF</th>
+              <th>Excluir</th>
+              <th>Editar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Os dados serão inseridos aqui -->
+          </tbody>
+        </table>
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-content">
+              <h4>Centros de Interesse escolhidos pelo participante:</h4>
+              <hr class="linhaSubtitulo" />
+              <div style="text-align: center">
+                <div class="gridCentrosDeInteresseDoParticipante-container">
+                  <div id="divCentrosDeInteresseDoParticipante"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div id="custom-alert" class="alert">
+      <span id="alert-message"></span>
+      <span class="close-btn" onclick="fecharAlerta()">×</span>
+    </div>
+
+    <script src="scripts.js"></script>
+  </body>
+</html>

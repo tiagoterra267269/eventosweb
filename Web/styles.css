@@ -1,0 +1,292 @@
+/*-------------------------------------------------------------------------
+#region Gerais
+-------------------------------------------------------------------------*/
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  margin: 2%;
+}
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+  margin-top: 1%;
+}
+.form-group-button {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 1%;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],input[type="date"],
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  font-size: 16px;
+}
+input[type="email"],
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  font-size: 16px;
+}
+input:hover{
+  box-shadow: 0 0 10px rgb(245, 245, 245), 0 0 10px rgba(4, 166, 247, 0.968);
+  outline: none; 
+  border-color: transparent;
+}
+input:focus{
+  border-color: #007bff;
+  box-shadow: 0 0 10px rgba(4, 166, 247, 0.968) 0 0 10px rgba(0, 123, 255, 0.6); 
+  outline: none; 
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path fill="%23333" d="M6 0L0 6h12z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 8px 6px;
+  padding-right: 30px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;}
+button:hover {
+  background-color: #0056b3;
+}
+.salvar{
+  background-color: rgb(47, 255, 57);
+}
+.btnnovoevento{
+  background-color: orange;
+}
+.salvar:hover{
+  background-color: rgb(109, 255, 47);
+}
+/*-------------------------------------------------------------------------
+#region TAB
+-------------------------------------------------------------------------*/
+.tab {
+    overflow: hidden;
+    background-color :#87CEFA;
+    background: linear-gradient(to right, rgba(135,206,250,0.7) 0%, rgba(135,206,250,1) 20%, rgba(135,206,250,1) 80%, rgba(135,206,250,0.7) 100%);
+  }
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+  }
+  .tab button:hover {
+    background-color:  #74befa;
+  }
+  .tab button.active {
+    background-color: #74befa;
+  }
+
+  .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
+  }
+  .tabcontent {
+    animation: fadeEffect 1s;
+  }
+
+  @keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+/*-------------------------------------------------------------------------
+#region ALERTA
+-------------------------------------------------------------------------*/
+  .alert {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .close-btn {
+    float: right;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .close-btn:hover {
+    color: red;
+  }
+
+/*-------------------------------------------------------------------------
+#region ACCORDION
+-------------------------------------------------------------------------*/
+.accordion {
+  background-color :rgb(62, 175, 245);
+  background: linear-gradient(to right, rgba(62,175,245,0.7) 100%, rgba(62,175,245,1) 80%, rgba(62,175,245,1) 20%, rgba(62,175,245,0.7) 0%);
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  margin-bottom: 1%;
+}
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  display: none;
+  overflow: hidden;
+}
+
+/*-------------------------------------------------------------------------
+Region Grid 
+-------------------------------------------------------------------------*/
+.grid-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #138fed;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.idHidden{
+  border: 1px;
+}
+
+.checkboxgrid-container {
+  display: grid;
+  grid-template-columns: auto auto; 
+  gap: 10px; 
+}
+.checkboxgrid-item {
+  display: flex; 
+  align-items: center; 
+}
+
+.gridCentrosDeParticipantes-container{
+  padding-left: 5%;
+  padding-right: 10%;
+}
+
+.gridCentrosDeInteresseDoParticipante-container{
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+/*-------------------------------------------------------------------------
+Region Modal
+-------------------------------------------------------------------------*/
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.4); 
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; 
+  border-radius: 10px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.extra-content {
+  display: none;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+.linhaSubtitulo{
+  height: 2px;
+  background: linear-gradient(to right, rgba(135,206,250,0.7) 0%, rgba(135,206,250,1) 20%, rgba(135,206,250,1) 80%, rgba(135,206,250,0.7) 100%);
+  border: none; 
+  margin: 10px 18px; 
+}
