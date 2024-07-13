@@ -6,7 +6,7 @@ A aplicação se integra com a aplicação projeto eventosapi que é responsáve
 responsável por permitir o acesso do usuário à aplicação.
 
 Crie a imagem do docker referente ao projeto controle de acesso:
->  docker build -t eventosapi .
+>  docker build -t eventos-web .
 
 Crie a rede, caso nao exista:
 
